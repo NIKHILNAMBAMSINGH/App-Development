@@ -7,7 +7,7 @@ const Button = ({title}:{title:string}) => {
 
   return (
 
-    <TouchableOpacity activeOpacity={1} style={style.container}>
+    <TouchableOpacity activeOpacity={0.5} style={style.container}>
         <Text style={style.title}>{title}</Text>
     </TouchableOpacity>
   )

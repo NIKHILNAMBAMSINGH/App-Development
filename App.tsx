@@ -10,6 +10,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useState } from 'react';
 import Splash from './src/screens/auth/Splash/Index';
 import Index from './src/screens/auth/Splash/Index';
+import Signup from './src/screens/auth/Signup/Index';
 
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
       <SafeAreaView>
       <View>
       <StatusBar barStyle="dark-content" />
-      <Index/>
+      {/* <Index/> */}
+      <Signup/>
       </View>
       </SafeAreaView>
   )
