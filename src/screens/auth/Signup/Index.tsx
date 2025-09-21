@@ -1,14 +1,17 @@
-import React from 'react'
-import { Image, Pressable, Text, View } from 'react-native'
-import AuthHeader from '../../../components/AuthHeader/Index';
-import { style } from './style';
+import { View } from "react-native";
+import { style } from "./style";
+import AuthHeader from "../../../components/AuthHeader/Index";
+import Input from "../../../components/Input/Index";
 
 const Signup = () => {
   return (
     <View style={style.container}>
-     <AuthHeader title={'Sign Up'}/>
-
+      <AuthHeader title="Sign Up" />
+      <Input label="Name" placeholder="Nikhil Nambam" />
+        <Input label="E-mail" placeholder="nambamnikhil8@gmail.com" />
+          <Input label="Password" placeholder="******" />
     </View>
   );
 };
-export default Signup
+
+export default Signup;

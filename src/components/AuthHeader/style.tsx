@@ -5,7 +5,8 @@ import { colors } from "../../utils/Color";
 export const style=StyleSheet.create({
     container:{
     flexDirection:'row',
-    alignItems:'center'
+    alignItems:'center',
+    marginBottom:20,
     },
     image:{
        width:18,
