@@ -9,7 +9,7 @@ const Signup = () => {
       <AuthHeader title="Sign Up" />
       <Input label="Name" placeholder="Nikhil Nambam" />
         <Input label="E-mail" placeholder="nambamnikhil8@gmail.com" />
-          <Input label="Password" placeholder="******" />
+          <Input isPassword={true}label="Password" placeholder="hello" />
     </View>
   );
 };
