@@ -16,4 +16,7 @@ export const style=StyleSheet.create({
     agreeTextBold:{
         fontWeight:'bold'
     },
+    button:{
+        marginVertical:20,
+    }
 })
