@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { style } from "./style";
 import AuthHeader from "../../../components/AuthHeader/Index";
 import Input from "../../../components/Input/Index";
@@ -6,11 +6,13 @@ import Checkbox from "../../../components/Checkbox/Index";
 import { useState } from "react";
 import Button from "../../../components/Button/Button";
 import Seperator from "../../../components/Seperator/Index";
+import GoogleLogin from "../../../components/Google Login/Index";
+
 
 const Signup = () => {
   const [checked,setChecked]=useState(false)
   return (
-    <View style={style.container}>
+    <ScrollView style={style.container}>
       <AuthHeader title="Sign Up" />
       <Input label="Name" placeholder="Nikhil Nambam" />
         <Input label="E-mail" placeholder="nambamnikhil8@gmail.com" />
@@ -21,7 +23,9 @@ const Signup = () => {
           </View>
           <Button title="Sign Up" buttonStyle={style.button}></Button>
         <Seperator text="Or sign up with"/>
-    </View>
+
+        <GoogleLogin title="google"/>
+    </ScrollView>
   );
 };
 

@@ -13,4 +13,4 @@ const Button = ({ title, buttonStyle }: { title: string; buttonStyle?: any }) =>
   )
 }
 
-export default Button
+export default Button;

@@ -2,6 +2,7 @@
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 import { style } from '../Button/style'
 import { Styles } from './style'
+import React from 'react'
 
 const Checkbox=({checked,onCheck}:{checked:boolean,onCheck?:(newValue:boolean)=>void})=>{
 return (
