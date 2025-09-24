@@ -34,9 +34,9 @@ const MyTheme = {
       <NavigationContainer theme={MyTheme}>
       
         <Stack.Navigator>
-          <Stack.Screen name="Splash" component={Splash} />
-          <Stack.Screen name="SignIn" component={SignIn} />
-          <Stack.Screen name="SignUp" component={Signup} />
+          <Stack.Screen name="Splash" component={Splash} options={{headerShown:false}}/>
+          <Stack.Screen name="SignIn" component={SignIn} options={{headerShown:false}}/>
+          <Stack.Screen name="SignUp" component={Signup} options={{headerShown:false}}/>
         </Stack.Navigator>
       </NavigationContainer>
      
