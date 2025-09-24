@@ -3,10 +3,18 @@ import { Image, Pressable, Text, View } from 'react-native'
 import { style } from './style';
 import Button from '../../../components/Button/Button';
 
-const Index = () => {
+const Splash = ({navigation}) => {
+    
+   const onSignUp = () => {
+    navigation.navigate('SignUp'); 
+  };
+
+  const onSignIn = () => {
+    navigation.navigate('SignIn'); 
+  };
+
   return (
     <View style={style.container}>
-        
         <Image resizeMode='contain' style={style.image}source={require('../../../assets/splash_image.png')}></Image>
         <View style={style.titleContainer}>
     <Text style={style.title}>You'll find </Text>
@@ -14,13 +22,11 @@ const Index = () => {
     <Text style={style.title}>Here!</Text>
     </View>
 
-
-    <Button title="Sign up"/>
-    <Pressable onPress={() => console.log("Sign In Pressed")}>
+    <Button title="Sign up" onPress={onSignUp}/>
+    <Pressable onPress={onSignIn} hitSlop={20}>
         <Text style={style.footerText}>Sign In</Text>
     </Pressable>
-
     </View>
   );
 };
-export default Index
+export default Splash;

@@ -1,42 +1,46 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { StatusBar, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useEffect, useState } from 'react';
-import Splash from './src/screens/auth/Splash/Index';
-import Index from './src/screens/auth/Splash/Index';
-import Signup from './src/screens/auth/Signup/Index';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { DefaultTheme, NavigationContainer, Theme } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import Splash from './src/screens/auth/Splash/Index';
 import SignIn from './src/screens/auth/SignIn/Index';
+import Signup from './src/screens/auth/Signup/Index';
+import { colors } from './src/utils/Color';
 
+const Stack = createNativeStackNavigator();
 
-
-const App=()=> {
-
- useEffect(() => {
+const App = () => {
+  useEffect(() => {
     GoogleSignin.configure({
-     webClientId: '664454065013-fs90fmkvi530053kclc7610v3vbs73pc.apps.googleusercontent.com',
+      webClientId: '664454065013-fs90fmkvi530053kclc7610v3vbs73pc.apps.googleusercontent.com',
       offlineAccess: true,
       forceCodeForRefreshToken: true,
     });
-  });
+  }, []); 
 
-    return (
-      <SafeAreaView>
-      <View>
-      <StatusBar barStyle="dark-content" />
-      {/* <Index/> */}
-      {/* <Signup/> */}
-      <SignIn/>
-      </View>
-      </SafeAreaView>
-  )
-}
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: colors.white,
+  },
+};
 
+
+  return (
+      <NavigationContainer theme={MyTheme}>
+      
+        <Stack.Navigator>
+          <Stack.Screen name="Splash" component={Splash} />
+          <Stack.Screen name="SignIn" component={SignIn} />
+          <Stack.Screen name="SignUp" component={Signup} />
+        </Stack.Navigator>
+      </NavigationContainer>
+     
+  );
+};
 
 export default App;
