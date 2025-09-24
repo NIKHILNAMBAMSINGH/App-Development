@@ -4,7 +4,7 @@ import { style } from './style';
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 
 
-const GoogleLogin = ({ title }: { title: string }) => {
+const GoogleLogin = () => {
 
   const handleGoogleLogin = async () => {
     try {
@@ -26,7 +26,7 @@ const GoogleLogin = ({ title }: { title: string }) => {
 
   return (
     <TouchableOpacity
-      activeOpacity={0.5}
+      activeOpacity={0.1}
       style={style.container}
       onPress={handleGoogleLogin} 
     >

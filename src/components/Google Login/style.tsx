@@ -10,6 +10,7 @@ export const style=StyleSheet.create({
      alignItems:'center',
      padding:16,
      borderRadius:14,
+     marginBottom:50,
     },
     image:{
       width:30,
