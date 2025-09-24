@@ -18,5 +18,16 @@ export const style=StyleSheet.create({
     },
     button:{
         marginVertical:20,
+    },
+    footerText:{
+        color:colors.blue,
+        marginBottom:50,
+        textAlign:'center'
+    },
+    footerLink:{
+    fontWeight:'bold'
+    },
+    borderWidth:{
+        borderWidth:2,
     }
 })
