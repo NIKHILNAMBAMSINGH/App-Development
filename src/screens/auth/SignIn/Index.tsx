@@ -8,6 +8,7 @@ import { Text, TouchableOpacity, View ,ScrollView} from 'react-native';
 import { useState } from "react";
 import Button from "../../../components/Button/Button";
 import GoogleLogin from "../../../components/Google Login/Index";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const SignIn = ({navigation}) => {
   const [checked,setChecked]=useState(false)
@@ -20,7 +21,8 @@ const SignIn = ({navigation}) => {
   }
 
   return (
-    <ScrollView style={style.container}>
+    <SafeAreaView>
+      <ScrollView style={style.container}>
       <AuthHeader onBackPress={onBack} title="Sign In" />
 
         <Input label="E-mail" placeholder="nambamnikhil8@gmail.com" />
@@ -38,6 +40,8 @@ const SignIn = ({navigation}) => {
         </Text>
 
     </ScrollView>
+    </SafeAreaView>
+    
   );
 };
 
