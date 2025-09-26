@@ -2,6 +2,7 @@ import { View, Text, TextInput, Pressable, Image } from "react-native";
 import { style } from "./style";
 import { useState } from "react";
 
+
 const Input = ({ label, placeholder, isPassword }: { label: string; placeholder: string; isPassword?: boolean }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
