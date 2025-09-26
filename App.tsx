@@ -12,13 +12,36 @@ import { colors } from './src/utils/Color';
 import HomeScreen from './src/screens/app/Home/Index';
 import ProfileScreen from './src/screens/app/Profile/Index';
 import Favorites from './src/screens/app/Favorites/Index';
+import { Image } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 
 const Tabs=()=>(
-   <Tab.Navigator screenOptions={{headerShown:false}}>
+   <Tab.Navigator screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let icon;
+
+            if (route.name === 'Home') {
+              icon = focused
+                ? require('./src/assets/Tabs/home_active.png')
+                : require('./src/assets/Tabs/home.png');
+            } else if (route.name === 'Favorites') {
+              icon = focused ?  require('./src/assets/Tabs/bookmark_active.png'): require('./src/assets/Tabs/bookmark.png');
+            }
+            else if (route.name === 'Profile') {
+              icon = focused ?  require('./src/assets/Tabs/profile_active.png'): require('./src/assets/Tabs/profile.png');
+            }
+            return <Image source={icon} style={{height:26,width:26}} />;
+          },
+          tabBarShowLabel:false,
+          headerShown:false,
+          tabBarStyle:{borderTopColor:colors.lightGrey}
+
+        })}
+
+        >
       <Tab.Screen name="Home" component={HomeScreen} />
        <Tab.Screen name="Favorites" component={Favorites} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
