@@ -26,6 +26,6 @@ export const categories = [
     {
         id: 5,
         title: 'Bed',
-        image: 'https://szyszkadesign.com/wp-content/uploads/2021/12/categorybeds-1-1200x1200-1.jpg'
+        image: 'https://ii1.pepperfry.com/media/catalog/product/m/a/764x840/maverick-queen-size-bed-in-columbian-walnut-finish-with-box-storage-maverick-queen-size-bed-in-colum-1nfazh.jpg'
     },
 ]

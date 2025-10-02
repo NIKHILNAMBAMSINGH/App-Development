@@ -2,7 +2,7 @@ export const products = [
     {
         id: 1,
         title: 'Loft Style Chair',
-        image: 'https://grandrapidschair.com/wp-content/uploads/2016/01/250_Brady_Graphite_Honey-1.jpg',
+        image: 'https://ii1.pepperfry.com/media/catalog/product/e/l/764x840/elegant-sheesham-wood-armchair-in-honey-oak-finish-by-woodsworth-elegant-sheesham-wood-armchair-in-h-texhdx.jpg',
         category: 1,
         price: '$ 20.00'
     },
@@ -30,12 +30,7 @@ export const products = [
     {
         id: 5,
         title: 'Velvet Sofa',
-        image: 'https://www.housingunits.co.uk/media/catalog/product/cache/60968cec045f20fb06ab5f7720001507/5/5/555685b1a8eecf2133f18451526a4ede.jpg',
-        images: [
-            'https://collinsandhayes-cdn-1.s3.eu-west-2.amazonaws.com/wp-content/uploads/2022/02/14101256/V7A1199-800x800.jpg',
-            'https://www.housingunits.co.uk/media/catalog/product/cache/60968cec045f20fb06ab5f7720001507/5/5/555685b1a8eecf2133f18451526a4ede.jpg',
-            'https://media.sofa.com/thumbor/unsafe/https%3A%2F%2Fmedia.sofa.com%2Fmedias%2FSS22-Homepage-Category-Tiles-1-SOFAS.jpg%3Fcontext%3DbWFzdGVyfHJvb3R8MTM1MzYyfGltYWdlL2pwZWd8aDUyL2g0ZC84OTk4ODEwNTgzMDcwLmpwZ3xjNWUzZDYzMjY2NGNhNWJkYjUwNjg4MDlkNzBiZTFlYmNiNmE1YWEyNDEwMTFhYWRlYTI0OGMwZGVlZTE1OWE1',
-        ],
+        image: 'https://d2emch4msrhe87.cloudfront.net/image/cache/data/fabric-sofa/adrick-3-seater-sofa/product/jade-ivory/102-810x702.jpg',
         category: 4,
         price: '$ 120.00'
     },
