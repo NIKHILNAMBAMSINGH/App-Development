@@ -6,11 +6,30 @@ import { categories } from "../../../data/categories";
 import CategoryBox from "../../../components/CategoryBox/Index";
 import { products } from "../../../data/products";
 import ProductHomeItem from "../../../components/ProductHomeItem/Index";
+import { useEffect, useState } from "react";
 
 const HomeScreen=()=>{
+
+  const [selectedCategory,setSelectedCategory]=useState();
+  const [filteredProducts,setFilteredProducts]=useState(products);
+  
+  useEffect(()=>{
+    if(selectedCategory){
+      const updatedFilteredProduct=products.filter((product)=>product?.id===selectedCategory);
+      console.log(updatedFilteredProduct)
+    setFilteredProducts(updatedFilteredProduct);
+    }else{
+       setFilteredProducts(products);
+    }
+  },[selectedCategory])
+  
   const renderCategoryItem=({item,index}:{item:any;index:any})=>{
         return (
-          <CategoryBox isFirst={index===0}{...item}></CategoryBox>
+          <CategoryBox 
+          onPress={()=>setSelectedCategory(item?.id)}
+          isSelected={item?.id===selectedCategory}
+          isFirst={index===0}{...item}>
+          </CategoryBox>
         )
   }
 
@@ -26,7 +45,7 @@ const HomeScreen=()=>{
 
               <FlatList 
               style={style.productList} 
-              data={products} 
+              data={filteredProducts} 
               renderItem={renderProductItem}
                keyExtractor={(item,index) => String(item.id)} 
                numColumns={2}

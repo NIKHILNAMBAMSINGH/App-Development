@@ -2,28 +2,26 @@ import { StyleSheet } from "react-native";
 import { colors } from "../../utils/Color";
 
 export const style=StyleSheet.create({
-    container:{
-        marginHorizontal:8,
-        flexDirection:'column',
-        alignItems:'center',
-        justifyContent:'center'
-
+    container: {
+        marginHorizontal: 8,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    imageContainer:{
-        backgroundColor:colors.lightGrey,
-        borderRadius:8,
-        marginBottom:8,
-        padding:8,
+    title: {
+        color: colors.grey,
     },
-    image:{
-       width:32,
-       height:32,
-       borderRadius:8,
+    imageContainer: {
+        backgroundColor: colors.lightGrey,
+       padding: 12,           // keep padding
+        borderRadius: 12,      // slightly bigger radius than image
+        marginBottom: 8,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
-    title:{
-        color:colors.textGrey
+    image: {
+        width: 32,
+        height: 32,
+        borderRadius: 8,       // smaller than container, so background shows
     },
-    price:{
-       color:colors.black
-    }
 })
