@@ -3,7 +3,9 @@ import { style } from "./style";
 import { useState } from "react";
 
 
-const Input = ({ label, placeholder, isPassword }: { label: string; placeholder: string; isPassword?: boolean }) => {
+const Input = ({ label, placeholder, isPassword,onChangeText,value }: { label: string; placeholder: string; isPassword?: boolean,onChangeText?:any;value?:any}) => {
+
+  
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const onEyepress = () => {
@@ -16,6 +18,8 @@ const Input = ({ label, placeholder, isPassword }: { label: string; placeholder:
       <View style={style.inputContainer}>
         <TextInput
           secureTextEntry={isPassword && !isPasswordVisible}
+          value={value}
+          onChangeText={onChangeText}
           style={style.input}
           placeholder={placeholder}   
         />

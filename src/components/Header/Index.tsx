@@ -11,6 +11,8 @@ const Header = ({
   onBackPress,
   onLogout,
   showLogout,
+  onSearch,
+  keyword,
   showSearch,
   showBack,
 }: {
@@ -18,6 +20,8 @@ const Header = ({
   onBackPress?: () => void;
   onLogout?: () => void;
   showLogout?: boolean;
+  onSearch?: any;
+  keyword?:any;
   showSearch?: boolean;
   showBack?: boolean;
 })=>{
@@ -29,7 +33,7 @@ const Header = ({
     }
 
     return(
-        <View>
+        <View style={style.mainContainer}>
              <View style={style.container}>
             {
                 showBack?(
@@ -53,7 +57,7 @@ const Header = ({
         </View>
         {
             showSearchInput?(
-                <Input label={""} placeholder="Type your Keyword ..."></Input>
+                <Input label={""} onChangeText={onSearch} value={keyword} placeholder="Type your Keyword ..."></Input>
             ):null}
         </View>
         

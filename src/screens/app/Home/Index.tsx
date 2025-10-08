@@ -11,17 +11,30 @@ import { useEffect, useState } from "react";
 const HomeScreen=()=>{
 
   const [selectedCategory,setSelectedCategory]=useState();
+  const [keyword,setKeyword]=useState("");
   const [filteredProducts,setFilteredProducts]=useState(products);
+  console.log("keyword ==>",keyword)
   
   useEffect(()=>{
-    if(selectedCategory){
+    if(selectedCategory &&!keyword){
       const updatedFilteredProduct=products.filter((product)=>product?.id===selectedCategory);
       console.log(updatedFilteredProduct)
-    setFilteredProducts(updatedFilteredProduct);
-    }else{
+      setFilteredProducts(updatedFilteredProduct);
+    }
+    else if(selectedCategory && keyword){
+      const updatedFilteredProduct=products.filter((product)=>product?.id===selectedCategory && product?.title?.toLowerCase().includes(keyword?.toLowerCase()));
+      console.log(updatedFilteredProduct)
+      setFilteredProducts(updatedFilteredProduct);
+    }
+    else if(!selectedCategory && keyword){
+      const updatedFilteredProduct=products.filter((product)=>product?.title?.includes(keyword));
+      console.log(updatedFilteredProduct)
+      setFilteredProducts(updatedFilteredProduct);
+    }
+    else{
        setFilteredProducts(products);
     }
-  },[selectedCategory])
+  },[selectedCategory,keyword])
   
   const renderCategoryItem=({item,index}:{item:any;index:any})=>{
         return (
@@ -39,7 +52,7 @@ const HomeScreen=()=>{
    return (
     <SafeAreaView >
         {/* <ScrollView style={Style.container}> */}
-              <Header title="Find All You Need" showSearch/>
+              <Header title="Find All You Need" onSearch={setKeyword} keyword={keyword}  showSearch/>
 
               <FlatList showsHorizontalScrollIndicator={false}style={style.list} horizontal data={categories} renderItem={renderCategoryItem} keyExtractor={(item,index)=>String(index)}></FlatList>
 
