@@ -3,15 +3,19 @@ import { Image, Pressable, Text, TouchableOpacity, View } from 'react-native'
 import { style } from './style'
 
 
-const ProductHomeItem = ({ title,price, image, onPress}: { title?:any,price?:any, image?: any, onPress?:any}) => {
+const FavoriteItem = ({ title,price, image, onPress}: { title?:any,price?:any, image?: any, onPress?:any}) => {
   return (
     <Pressable onPress={onPress} style={style.container}>
           <Image style={style.image}source={{uri:image}}></Image>
+          <View style={style.content}>
                   <Text style={style.title}>{title}</Text>
                   <Text style={style.price}>{price}</Text>
+          </View>
+            <Image style={style.closeIcon}source={require('../../assets/close.png')}></Image>
+            
     </Pressable>
 
   )
 }
 
-export default ProductHomeItem;
+export default FavoriteItem;
