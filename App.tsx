@@ -13,6 +13,7 @@ import HomeScreen from './src/screens/app/Home/Index';
 import ProfileScreen from './src/screens/app/Profile/Index';
 import Favorites from './src/screens/app/Favorites/Index';
 import { Image } from 'react-native';
+import ProductDetails from './src/components/ProductDetails/Index';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -74,6 +75,7 @@ const MyTheme = {
           isSignedIn?(
             <>
             <Stack.Screen name="Tabs" component={Tabs} options={{headerShown:false}}/>
+            <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown:false}}/>
             </>
 
           ):(

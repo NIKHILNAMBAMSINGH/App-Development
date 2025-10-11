@@ -7,8 +7,9 @@ import CategoryBox from "../../../components/CategoryBox/Index";
 import { products } from "../../../data/products";
 import ProductHomeItem from "../../../components/ProductHomeItem/Index";
 import { useEffect, useState } from "react";
+import ProductDetails from "../../../components/ProductDetails/Index";
 
-const HomeScreen=()=>{
+const HomeScreen=({navigation})=>{
 
   const [selectedCategory,setSelectedCategory]=useState();
   const [keyword,setKeyword]=useState("");
@@ -47,7 +48,10 @@ const HomeScreen=()=>{
   }
 
  const renderProductItem = ({ item }: { item: any }) => {
-    return <ProductHomeItem {...item} />;
+  const onProductPress=(product)=>{
+ navigation.navigate('ProductDetails',{product})
+  }
+    return <ProductHomeItem onPress={()=>onProductPress(item)}{...item} />;
   };
    return (
     <SafeAreaView >
