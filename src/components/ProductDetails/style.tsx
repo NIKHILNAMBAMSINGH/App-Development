@@ -4,6 +4,26 @@ import { colors } from "../../utils/Color";
 const { width } =Dimensions.get('window')
 const {height}=Dimensions.get('window')
 export const style=StyleSheet.create({
+    safe: {
+        flex: 1,
+       
+    },
+      footer: {
+        padding:24,
+        flexDirection:'row',
+        alignItems:'center'
+    
+    },
+    bookmarkContainer:{
+           backgroundColor:colors.lightGrey,
+           padding:18,
+           marginRight:16,
+            borderRadius:8,
+    },
+    bookmarkIcon:{
+        width: 24,
+        height: 24,
+    },
     content:{
        backgroundColor:colors.white,
        marginTop:-40,
