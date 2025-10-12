@@ -9,6 +9,10 @@ const ProductDetails = ({ navigation, route }) => {
   const {product} = route?.params || {};
   console.log("product",product?.description)
 
+  const onBackPress=()=>{
+navigation.goBack()
+  }
+
  return (
   <SafeAreaView style={style.safe}>
  <ScrollView>
@@ -18,6 +22,9 @@ const ProductDetails = ({ navigation, route }) => {
      <Text style={style.price}>{product?.price}</Text>
      <Text style={style.description}>{product?.description}</Text>
   </View>
+  <Pressable onPress={onBackPress} style={style.backContainer}>
+        <Image style={style.backIcon}source={require('../../assets/back.png')}></Image>
+    </Pressable>
     </ScrollView>
   <View style={style.footer}>
     <Pressable  style={style.bookmarkContainer}>

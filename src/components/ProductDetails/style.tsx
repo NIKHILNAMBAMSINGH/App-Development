@@ -14,6 +14,18 @@ export const style=StyleSheet.create({
         alignItems:'center'
     
     },
+    backContainer:{
+           backgroundColor:colors.white,
+           padding:10,
+           margin:24,
+           marginRight:16,
+           borderRadius:8,
+           position:'absolute'
+    },
+    backIcon:{
+        width: 20,
+        height: 20,
+    },
     bookmarkContainer:{
            backgroundColor:colors.lightGrey,
            padding:18,
