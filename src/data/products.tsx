@@ -34,6 +34,13 @@ export const products = [
         id: 5,
         title: 'Velvet Sofa',
         image: 'https://d2emch4msrhe87.cloudfront.net/image/cache/data/fabric-sofa/adrick-3-seater-sofa/product/jade-ivory/102-810x702.jpg',
+        images: [
+            'https://ii1.pepperfry.com/media/catalog/product/a/l/764x840/alfredo-1-seater-sofa-in-chestnut-brown-colour-by-woodsworth-alfredo-1-seater-sofa-in-chestnut-brown-mnsp4j.jpg',
+
+            'https://ii1.pepperfry.com/media/catalog/product/a/l/764x840/alfredo-1-seater-sofa-in-chestnut-brown-colour-by-woodsworth-alfredo-1-seater-sofa-in-chestnut-brown-qjccnv.jpg',
+            'https://ii1.pepperfry.com/media/catalog/product/a/l/764x840/alfredo-1-seater-sofa-in-chestnut-brown-colour-by-woodsworth-alfredo-1-seater-sofa-in-chestnut-brown-sarvfb.jpg',
+            'https://ii1.pepperfry.com/media/catalog/product/a/l/764x840/alfredo-1-seater-sofa-in-chestnut-brown-colour-by-woodsworth-alfredo-1-seater-sofa-in-chestnut-brown-9xtaje.jpg',
+        ],
         category: 4,
         price: '$ 120.00'
     },
