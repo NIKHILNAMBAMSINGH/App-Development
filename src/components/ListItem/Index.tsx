@@ -3,15 +3,17 @@ import { useState } from "react";
 import React from 'react'
 import { style } from "./style";
 
-const ListItem = ({title,subtitle}) => {
+const ListItem = ({title,subtitle,onPress,styles}:{title:any;subtitle?:any,onPress?:any,styles?:any}) => {
   return (
-    <View style={style.container}>
+    <Pressable onPress={onPress} style={[style.container,styles]}>
       <View style={style.content}>
         <Text style={style.title}>{title}</Text>
-        <Text style={style.subtitle}>{subtitle}</Text>
+       {Boolean(subtitle) ? (
+                    <Text style={styles.subtitle}>{subtitle}</Text>
+                ) : null}
       </View>
       <Image style={style.arrow}source={require('../../assets/right-arrow.png')}/>
-    </View>
+    </Pressable>
   )
 }
 export default ListItem;

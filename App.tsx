@@ -14,10 +14,19 @@ import ProfileScreen from './src/screens/app/Profile/Index';
 import Favorites from './src/screens/app/Favorites/Index';
 import { Image } from 'react-native';
 import ProductDetails from './src/components/ProductDetails/Index';
+import Setting from './src/screens/app/Settings/Index';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+const profileStackScreen=({})=>{
+  return(
+                 <Stack.Navigator>
+                    {/* <Stack.Screen name="Profile" component={ProfileScreen} options={{headerShown:false}}/> */}
+                    <Stack.Screen name="Setting" component={Setting} options={{headerShown:false}}/>
+                </Stack.Navigator>
+  )
+}
 
 const Tabs=()=>(
    <Tab.Navigator screenOptions={({ route }) => ({
@@ -45,7 +54,7 @@ const Tabs=()=>(
         >
       <Tab.Screen name="Home" component={HomeScreen} />
        <Tab.Screen name="Favorites" component={Favorites} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Profile" component={profileStackScreen} />
     </Tab.Navigator>
 )
 
