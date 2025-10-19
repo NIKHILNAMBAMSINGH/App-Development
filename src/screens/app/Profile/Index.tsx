@@ -9,11 +9,15 @@ const ProfileScreen=({navigation})=>{
     const num=10;
 
     const onLogout=()=>{
-        console.log('Log out clicked')
+        console.log('Log out clicked');
     }
 
     const onSettingPress=()=>{
-       navigation.navigate('Setting')
+       navigation.navigate('Setting');
+    }
+
+    const onNewListingPress=()=>{
+      navigation.navigate('CreateNewListing');
     }
    return (
       <SafeAreaView style={{flex:1}} >
@@ -25,7 +29,7 @@ const ProfileScreen=({navigation})=>{
                     <ListItem title="My Listing" subtitle={`You have ${num} listings`}></ListItem>    
                     <ListItem  onPress={onSettingPress}title="Setting" subtitle={`Account,FAQ,Contact`}></ListItem>  
             </View>
-            <Button  buttonStyle={{flex:0}} title="Add New Listing"></Button>
+            <Button  buttonStyle={{flex:0}} onPress={onNewListingPress}title="Add New Listing"></Button>
                 
           </View>
       </SafeAreaView>

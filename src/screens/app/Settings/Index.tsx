@@ -7,7 +7,7 @@ import EditableBox from "../../../components/EditableBox/Index";
 import { useState } from "react";
 import Button from "../../../components/Button/Button";
 
-const Setting=()=>{
+const Setting=({navigation})=>{
  const [editing,setEditing]=useState(false);
  const [values,setValues]=useState({name:'user',email:'nikhil@gmail.com'})
 
@@ -29,10 +29,13 @@ const Setting=()=>{
     setValues(v=>({...v,[key]:value}))
   }
   console.log(values)
+  const onBack=()=>{
+    navigation.goBack();
+  }
 
   return (
     <SafeAreaView>
-      <Header title="Setting"></Header>
+      <Header showBack={true} onBackPress={onBack}title="Setting"></Header>
             <ScrollView style={Style.container}>
               <View style={Style.subtitleHeader}>
                 <Text style={Style.sectionTitle}>Personal Information</Text>
