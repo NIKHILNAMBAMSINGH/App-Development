@@ -16,6 +16,19 @@ export const Style=StyleSheet.create({
   paddingVertical:8,
   paddingHorizontal:16,
   marginVertical:8,
+  },
+  subtitleHeader:{
+    flexDirection:'row',
+    justifyContent:'space-between'
+  },
+  image:{
+    width:32,
+    height:32,
+  },
+    button: {
+        paddingVertical: 12,
+        marginTop: 16,
+    
   }
 }
 )
