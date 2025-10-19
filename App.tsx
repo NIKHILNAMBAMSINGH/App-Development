@@ -22,7 +22,7 @@ const Tab = createBottomTabNavigator();
 const profileStackScreen=({})=>{
   return(
                  <Stack.Navigator>
-                    {/* <Stack.Screen name="Profile" component={ProfileScreen} options={{headerShown:false}}/> */}
+                    <Stack.Screen name="Profile" component={ProfileScreen} options={{headerShown:false}}/>
                     <Stack.Screen name="Setting" component={Setting} options={{headerShown:false}}/>
                 </Stack.Navigator>
   )
