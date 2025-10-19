@@ -32,7 +32,6 @@ const Tabs=()=>(
    <Tab.Navigator screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let icon;
-
             if (route.name === 'Home') {
               icon = focused
                 ? require('./src/assets/Tabs/home_active.png')
@@ -48,9 +47,7 @@ const Tabs=()=>(
           tabBarShowLabel:false,
           headerShown:false,
           tabBarStyle:{borderTopColor:colors.lightGrey}
-
         })}
-
         >
       <Tab.Screen name="Home" component={HomeScreen} />
        <Tab.Screen name="Favorites" component={Favorites} />
@@ -84,14 +81,14 @@ const MyTheme = {
           isSignedIn?(
             <>
             <Stack.Screen name="Tabs" component={Tabs} options={{headerShown:false}}/>
-            <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown:false}}/>
+            {/* <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown:false}}/> */}
             </>
 
           ):(
             <>
-          <Stack.Screen name="Splash" component={Splash} options={{headerShown:false}}/>
-          <Stack.Screen name="SignIn" component={SignIn} options={{headerShown:false}}/>
-          <Stack.Screen name="SignUp" component={Signup} options={{headerShown:false}}/>
+          {/* <Stack.Screen name="Splash" component={Splash} options={{headerShown:false}}/> */}
+          {/* <Stack.Screen name="SignIn" component={SignIn} options={{headerShown:false}}/>
+          <Stack.Screen name="SignUp" component={Signup} options={{headerShown:false}}/> */}
           </>
           )
           }

@@ -8,8 +8,8 @@ const ListItem = ({title,subtitle,onPress,styles}:{title:any;subtitle?:any,onPre
     <Pressable onPress={onPress} style={[style.container,styles]}>
       <View style={style.content}>
         <Text style={style.title}>{title}</Text>
-       {Boolean(subtitle) ? (
-                    <Text style={styles.subtitle}>{subtitle}</Text>
+       {subtitle? (
+                    <Text style={style.subtitle}>{subtitle}</Text>
                 ) : null}
       </View>
       <Image style={style.arrow}source={require('../../assets/right-arrow.png')}/>

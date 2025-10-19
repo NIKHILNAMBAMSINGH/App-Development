@@ -43,7 +43,7 @@ const Header = ({
                 ): showSearch?(
                     <Pressable onPress={onSearchClick}>
                          <Image  style={style.icon} source={require('../../assets/search.png')}></Image>
-                          console.console.log('search');
+                        
                     </Pressable>
                 ): <View style={style.space}></View>}
                 <Text style={style.text}>{title}</Text>

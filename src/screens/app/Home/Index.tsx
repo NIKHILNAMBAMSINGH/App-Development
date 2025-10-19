@@ -56,7 +56,7 @@ const HomeScreen=({navigation})=>{
   };
    return (
     <SafeAreaView >
-        {/* <ScrollView style={Style.container}> */}
+       
               <Header title="Find All You Need" onSearch={setKeyword} keyword={keyword}  showSearch/>
 
               <FlatList showsHorizontalScrollIndicator={false}style={style.list} horizontal data={categories} renderItem={renderCategoryItem} keyExtractor={(item,index)=>String(index)}></FlatList>
@@ -70,7 +70,7 @@ const HomeScreen=({navigation})=>{
                ListFooterComponent={<View style={{height:200}}/>}>
               
                </FlatList>
-        {/* </ScrollView> */}
+  
     </SafeAreaView>
   );
 }
