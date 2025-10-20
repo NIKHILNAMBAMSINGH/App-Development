@@ -62,8 +62,10 @@ export const Style=StyleSheet.create({
         marginTop: -10,
     },
     textarea: {
-        minHeight: 150,
-        paddingTop: 16,
+      textAlignVertical: 'top',
+       paddingTop:16,
+       minHeight:150,
+        
     },
     button: {
         marginBottom: 160,
