@@ -1,4 +1,4 @@
-import { ActivityIndicator, Image, Linking, Pressable, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, Image, KeyboardAvoidingView, Linking, Pressable, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../../../components/Header/Index";
 import { Style } from "./style";
@@ -47,7 +47,8 @@ const uploadNewImages = async () => {
     <SafeAreaView>
       <Header showBack={true} onBackPress={onBack}title="Create a new Listing"></Header>
             <ScrollView style={Style.container}>
-            <Text style={Style.sectionTitle}>Upload Photos</Text>
+               <KeyboardAvoidingView behavior='position' >
+                 <Text style={Style.sectionTitle}>Upload Photos</Text>
 
             <View style={Style.imageRow}>
 <TouchableOpacity disabled={ loading} onPress={uploadNewImages} style={Style.uploadContainer}>
@@ -72,6 +73,7 @@ const uploadNewImages = async () => {
              <Input placeholder="Enter price in USD" label="Price" value={values.price}  onChangeText={(v)=>onChange(v,'price')} keyboardType="numeric"></Input>
                <Input styles={Style.textarea}placeholder="Tell us more" label="Description" value={values.description} onChangeText={(v)=>onChange(v,'description')} multiline></Input>
            
+               </KeyboardAvoidingView>
             </ScrollView> 
     </SafeAreaView>
   )
