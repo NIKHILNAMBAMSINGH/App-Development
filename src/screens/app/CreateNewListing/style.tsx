@@ -12,23 +12,46 @@ export const Style=StyleSheet.create({
    padding:24,
 
   },
-  item:{
-  paddingVertical:8,
-  paddingHorizontal:16,
-  marginVertical:8,
-  },
-  subtitleHeader:{
-    flexDirection:'row',
-    justifyContent:'space-between'
-  },
   image:{
+    width:100,
+    height:100,
+    borderRadius:4,
+    marginRight:8,
+  },
+  uploadContainer:{
+    width:100,
+    height:100,
+    borderWidth:1,
+    borderRadius:8,
+    borderColor:colors.grey,
+    borderStyle:'dotted',
+    flexDirection:'column',
+    justifyContent:'center',
+    alignItems:'center',
+    marginRight:8,
+    marginTop:8,
+
+  },
+  uploadCircle:{
     width:32,
     height:32,
+    borderRadius:28,
+    backgroundColor:colors.lightGrey,
+     flexDirection:'column',
+    justifyContent:'center',
+    alignItems:'center'
+
   },
-    button: {
-        paddingVertical: 12,
-        marginTop: 16,
-    
+  uploadPlus:{
+    color:colors.white,
+    fontSize:28,
+    marginTop:-4,
+  },
+  imageRow:{
+    flexDirection:'row',
+    alignItems:'center',
+    flexWrap:'wrap'
   }
+  
 }
 )

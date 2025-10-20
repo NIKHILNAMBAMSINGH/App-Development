@@ -41,7 +41,7 @@ const Tabs=()=>(
             } else if (route.name === 'Favorites') {
               icon = focused ?  require('./src/assets/Tabs/bookmark_active.png'): require('./src/assets/Tabs/bookmark.png');
             }
-            else if (route.name === 'Profile') {
+            else if (route.name === 'ProfileStackScreen') {
               icon = focused ?  require('./src/assets/Tabs/profile_active.png'): require('./src/assets/Tabs/profile.png');
             }
             return <Image source={icon} style={{height:26,width:26}} />;
@@ -53,7 +53,7 @@ const Tabs=()=>(
         >
       <Tab.Screen name="Home" component={HomeScreen} />
        <Tab.Screen name="Favorites" component={Favorites} />
-      <Tab.Screen name="Profile" component={ProfileStackScreen} />
+      <Tab.Screen name="ProfileStackScreen" component={ProfileStackScreen} />
     </Tab.Navigator>
 )
 
