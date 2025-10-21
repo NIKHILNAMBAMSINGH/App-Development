@@ -28,13 +28,13 @@ const Input = ({ label, placeholder,type,options,isPassword,onChangeText,styles,
             value?(
    <Text style={[style.input,styles]}>{value?.title}</Text>
                           
-            ):(
+            ):( 
                  <Text style={[style.placeholderStyle,styles]}>{placeholder}</Text>
                         
             )
           }
-                        <Image style={style.arrow} source={require("../../assets/right-arrow.png")}/>
-                              </Pressable>
+              <Image style={style.arrow} source={require("../../assets/right-arrow.png")}/>
+             </Pressable>
       ):(
 
         

@@ -19,9 +19,9 @@ type ListingValues = {
 };
 
 const [images, setImages] = useState<Asset[]>([]);
+const [loading, setLoading] = useState(false);
+const [values, setValues] = useState<ListingValues>({});
 
- const [loading, setLoading] = useState(false);
-   const [values, setValues] = useState<ListingValues>({});
   const onBack=()=>{
     navigation.goBack();
   }
@@ -78,6 +78,7 @@ const uploadNewImages = async () => {
                <Input styles={Style.textarea}placeholder="Tell us more" label="Description" value={values.description} onChangeText={(v)=>onChange(v,'description')} multiline></Input>
            
                </KeyboardAvoidingView>
+               <Button buttonStyle={Style.button}title="Submit"></Button>
             </ScrollView> 
     </SafeAreaView>
   )
