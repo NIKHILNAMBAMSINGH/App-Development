@@ -30,5 +30,46 @@ export const style=StyleSheet.create({
         height:24,
         marginHorizontal:16,
 
+    },
+    arrow:{
+         width:15,
+        height:16,
+        marginHorizontal:16,
+         opacity: 0.6,
+         transform:[{rotate:'90deg'}]
+
+    },
+    placeholderStyle:{
+         paddingHorizontal:16,
+        paddingVertical:20,
+        flex:1,
+        color:colors.grey
+    },
+    modelWrapper:{
+        backgroundColor:'rgba(0,0,0,0.5',
+        justifyContent:'center',
+        alignItems:'center',
+       flex:1
+    },
+    modelContent:{
+       backgroundColor:colors.white,
+       borderRadius:8,
+       padding:16,
+       width:'80%'
+    },
+    headerTitle:{
+        marginBottom:16,
+        color:colors.black,
+        fontSize:16,
+    },
+    optionText: {
+        color: colors.black,
+        paddingVertical: 4,
+        fontSize: 15,
+    },
+    selectedOption: {
+        color: colors.blue,
+        fontWeight: 'bold',
     }
+
 })

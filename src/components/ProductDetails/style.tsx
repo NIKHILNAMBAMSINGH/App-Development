@@ -6,7 +6,6 @@ const {height}=Dimensions.get('window')
 export const style=StyleSheet.create({
     safe: {
         flex: 1,
-       
     },
       footer: {
         padding:24,

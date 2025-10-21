@@ -8,11 +8,13 @@ import { useState } from "react";
 import Button from "../../../components/Button/Button";
 import { Asset, launchImageLibrary } from "react-native-image-picker";
 import Input from "../../../components/Input/Index";
+import { categories } from "../../../data/categories";
 
 const CreateNewListing=({navigation})=>{
 type ListingValues = {
   title?: string;
   description?: string;
+  category?:string;
   price?: string;
 };
 
@@ -69,8 +71,10 @@ const uploadNewImages = async () => {
                             <ActivityIndicator />
                         ) : null}
             </View>
-  <Input placeholder="Listing Title" label="Title" value={values.title} onChangeText={(v)=>onChange(v,'title')}></Input>
+          <Input placeholder="Listing Title" label="Title" value={values.title} onChangeText={(v)=>onChange(v,'title')}></Input>
+             <Input placeholder="Select the category" label="Category" value={values.category}  onChangeText={(v)=>onChange(v,'category')} type="picker" options={categories}></Input>
              <Input placeholder="Enter price in USD" label="Price" value={values.price}  onChangeText={(v)=>onChange(v,'price')} keyboardType="numeric"></Input>
+             
                <Input styles={Style.textarea}placeholder="Tell us more" label="Description" value={values.description} onChangeText={(v)=>onChange(v,'description')} multiline></Input>
            
                </KeyboardAvoidingView>
