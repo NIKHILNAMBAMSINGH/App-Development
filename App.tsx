@@ -16,6 +16,7 @@ import { Image } from 'react-native';
 import ProductDetails from './src/components/ProductDetails/Index';
 import Setting from './src/screens/app/Settings/Index';
 import CreateNewListing from './src/screens/app/CreateNewListing/Index';
+import MyListings from './src/screens/app/MyListings/Index';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -26,6 +27,7 @@ const ProfileStackScreen=({})=>{
                     <Stack.Screen name="Profile" component={ProfileScreen} options={{headerShown:false}}/>
                     <Stack.Screen name="Setting" component={Setting} options={{headerShown:false}}/>
                     <Stack.Screen name="CreateNewListing" component={CreateNewListing} options={{headerShown:false}}/>
+                     <Stack.Screen name="ListListing" component={MyListings} options={{headerShown:false}}/>
                 </Stack.Navigator>
   )
 }
@@ -83,7 +85,7 @@ const MyTheme = {
           isSignedIn?(
             <>
             <Stack.Screen name="Tabs" component={Tabs} options={{headerShown:false}}/>
-            {/* <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown:false}}/> */}
+            <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown:false}}/>
             </>
 
           ):(

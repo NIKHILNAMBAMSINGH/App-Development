@@ -3,7 +3,7 @@ import { Image, Pressable, Text, TouchableOpacity, View } from 'react-native'
 import { style } from './style'
 
 
-const FavoriteItem = ({ title,price, image, onPress}: { title?:any,price?:any, image?: any, onPress?:any}) => {
+const FavoriteItem = ({ title,price, image,icon, onPress}: { title?:any,price?:any, image?: any,icon?:any, onPress?:any}) => {
   
   return (
     <Pressable onPress={onPress} style={style.container}>
@@ -12,7 +12,7 @@ const FavoriteItem = ({ title,price, image, onPress}: { title?:any,price?:any, i
                   <Text style={style.title}>{title}</Text>
                   <Text style={style.price}>{price}</Text>
           </View>
-            <Image style={style.closeIcon}source={require('../../assets/close.png')}></Image>
+            <Image style={style.closeIcon}source={icon||require('../../assets/close.png')}></Image>
             
     </Pressable>
 

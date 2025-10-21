@@ -11,7 +11,7 @@ const ProductDetails = ({ navigation, route }) => {
   console.log("product",product?.description)
 
   const onBackPress=()=>{
-navigation.goBack()
+    navigation.goBack()
   }
 
  return (

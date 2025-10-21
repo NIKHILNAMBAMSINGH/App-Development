@@ -61,11 +61,7 @@ const HomeScreen=({navigation})=>{
 
               <FlatList showsHorizontalScrollIndicator={false}style={style.list} horizontal data={categories} renderItem={renderCategoryItem} keyExtractor={(item,index)=>String(index)}></FlatList>
 
-              <FlatList 
-              style={style.productList} 
-              data={filteredProducts} 
-              renderItem={renderProductItem}
-               keyExtractor={(item,index) => String(item.id)} 
+              <FlatList style={style.productList} data={filteredProducts}  renderItem={renderProductItem} keyExtractor={(item,index) => String(item.id)} 
                numColumns={2}
                ListFooterComponent={<View style={{height:200}}/>}>
               

@@ -16,6 +16,10 @@ const ProfileScreen=({navigation})=>{
        navigation.navigate('Setting');
     }
 
+    const onMyListingPress=()=>{
+      navigation.navigate('ListListing');
+    }
+
     const onNewListingPress=()=>{
       navigation.navigate('CreateNewListing');
     }
@@ -26,7 +30,7 @@ const ProfileScreen=({navigation})=>{
             <View style={Style.content}>
                 <Text style={Style.name}>User name</Text>
                 <Text style={Style.email}>User email</Text>
-                    <ListItem title="My Listing" subtitle={`You have ${num} listings`}></ListItem>    
+                    <ListItem onPress={onMyListingPress}title="My Listing" subtitle={`You have ${num} listings`}></ListItem>    
                     <ListItem  onPress={onSettingPress}title="Setting" subtitle={`Account,FAQ,Contact`}></ListItem>  
             </View>
             <Button  buttonStyle={{flex:0}} onPress={onNewListingPress}title="Add New Listing"></Button>
