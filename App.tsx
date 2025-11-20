@@ -60,7 +60,7 @@ const Tabs=()=>(
 )
 
 const App = () => {
-  const isSignedIn=true;
+  const isSignedIn=false;
   useEffect(() => {
     GoogleSignin.configure({
       webClientId: '664454065013-fs90fmkvi530053kclc7610v3vbs73pc.apps.googleusercontent.com',
@@ -90,9 +90,9 @@ const MyTheme = {
 
           ):(
             <>
-          {/* <Stack.Screen name="Splash" component={Splash} options={{headerShown:false}}/> */}
-          {/* <Stack.Screen name="SignIn" component={SignIn} options={{headerShown:false}}/>
-          <Stack.Screen name="SignUp" component={Signup} options={{headerShown:false}}/> */}
+          <Stack.Screen name="Splash" component={Splash} options={{headerShown:false}}/> 
+          <Stack.Screen name="SignIn" component={SignIn} options={{headerShown:false}}/>
+          <Stack.Screen name="SignUp" component={Signup} options={{headerShown:false}}/> 
           </>
           )
           }
