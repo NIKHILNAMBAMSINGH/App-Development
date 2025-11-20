@@ -1,4 +1,4 @@
-import { ScrollView, Text, View } from "react-native";
+import { Alert, ScrollView, Text, View } from "react-native";
 import { style } from "./style";
 import AuthHeader from "../../../components/AuthHeader/Index";
 import Input from "../../../components/Input/Index";
@@ -11,7 +11,7 @@ import { request } from "../../../utils/Request";
 
 
 const Signup = ({navigation}) => {
-  const [checked,setChecked]=useState(false)
+const [checked,setChecked]=useState(false)
 const [value, setValue] = useState({email: '' ,name: '',password:'',confirmPassword:''});
    
   const onSignIn=()=>{
@@ -26,22 +26,40 @@ const [value, setValue] = useState({email: '' ,name: '',password:'',confirmPassw
     setValue(v=>({...v,[key]:value}));
   }
 
-  const onSubmit=()=>{
-    request({
-      url:'/data',
-      method:'get',
+  const onSubmit=async ()=>{
+    try{
+if(!value?.name|| !value.email||!value.password||!value.confirmPassword){
+      Alert.alert('All fields are mandatory')
+      return
+    }
+    if(value?.password!==value?.confirmPassword){
+      Alert.alert('Password do not match')
+      return 
+    }
+    if(!checked){
+      Alert.alert('Please agree to the term')
+      return
+    }
+    const response=await request({
+      url:'/registerUser',
+      method:'post',
       data:value,
-    }).then((response=>{
-      console.log('response : =>',response)
-    })).catch((error)=>{
-      console.log('error :=>', error);
-    })
+    });
+     console.log('value : ==>',value);
+    console.log('Response : ==>',response);
+    }
+    catch(error){
+      console.log('error : ==> ', error);
+    }
+    
+    
   }
 
 
   return (
     <ScrollView style={style.container}>
                     <AuthHeader onBackPress={onBack}title="Sign Up" />
+
                     <Input value={value.name} label="Name" onChangeText={v=>onChange('name',v)} placeholder="Name" />
                     <Input value={value.email} label="E-mail" onChangeText={v=>onChange('email',v)} placeholder="Email" />
                     <Input value={value.password} isPassword={true} label="Password" onChangeText={v=>onChange('password',v)} placeholder="Password" />

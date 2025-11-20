@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaProvider,SafeAreaView } from 'react-native-safe-area-context';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { DefaultTheme, NavigationContainer, Theme } from '@react-navigation/native';
@@ -20,6 +20,8 @@ import MyListings from './src/screens/app/MyListings/Index';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
+export const UserContext=React.createContext<String|null>(null);
 
 const ProfileStackScreen=({})=>{
   return(
@@ -61,6 +63,7 @@ const Tabs=()=>(
 
 const App = () => {
   const isSignedIn=false;
+  const [user,setUser]=useState();
   useEffect(() => {
     GoogleSignin.configure({
       webClientId: '664454065013-fs90fmkvi530053kclc7610v3vbs73pc.apps.googleusercontent.com',
@@ -80,7 +83,8 @@ const MyTheme = {
 
   return (
     <SafeAreaProvider>
-      <NavigationContainer theme={MyTheme}>
+      <UserContext.Provider value="User Data">
+          <NavigationContainer theme={MyTheme}>
         <Stack.Navigator>{
           isSignedIn?(
             <>
@@ -98,6 +102,7 @@ const MyTheme = {
           }
         </Stack.Navigator>
       </NavigationContainer>
+      </UserContext.Provider>
       </SafeAreaProvider>
      
   );

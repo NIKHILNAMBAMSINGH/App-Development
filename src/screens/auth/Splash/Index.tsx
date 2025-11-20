@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Image, Pressable, Text, View } from 'react-native'
 import { style } from './style';
 import Button from '../../../components/Button/Button';
 
 const Splash = ({navigation}) => {
-    
+  
    const onSignUp = () => {
     navigation.navigate('SignUp'); 
   };
