@@ -18,52 +18,23 @@ import Setting from './src/screens/app/Settings/Index';
 import CreateNewListing from './src/screens/app/CreateNewListing/Index';
 import MyListings from './src/screens/app/MyListings/Index';
 
-const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
 
-export const UserContext=React.createContext<String|null>(null);
-
-const ProfileStackScreen=({})=>{
-  return(
-                 <Stack.Navigator>
-                    <Stack.Screen name="Profile" component={ProfileScreen} options={{headerShown:false}}/>
-                    <Stack.Screen name="Setting" component={Setting} options={{headerShown:false}}/>
-                    <Stack.Screen name="CreateNewListing" component={CreateNewListing} options={{headerShown:false}}/>
-                     <Stack.Screen name="ListListing" component={MyListings} options={{headerShown:false}}/>
-                </Stack.Navigator>
-  )
+interface UserContextType {
+  user: string | null;
+  setUser: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-const Tabs=()=>(
-   <Tab.Navigator screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let icon;
-            if (route.name === 'Home') {
-              icon = focused
-                ? require('./src/assets/Tabs/home_active.png')
-                : require('./src/assets/Tabs/home.png');
-            } else if (route.name === 'Favorites') {
-              icon = focused ?  require('./src/assets/Tabs/bookmark_active.png'): require('./src/assets/Tabs/bookmark.png');
-            }
-            else if (route.name === 'ProfileStackScreen') {
-              icon = focused ?  require('./src/assets/Tabs/profile_active.png'): require('./src/assets/Tabs/profile.png');
-            }
-            return <Image source={icon} style={{height:26,width:26}} />;
-          },
-          tabBarShowLabel:false,
-          headerShown:false,
-          tabBarStyle:{borderTopColor:colors.lightGrey}
-        })}
-        >
-      <Tab.Screen name="Home" component={HomeScreen} />
-       <Tab.Screen name="Favorites" component={Favorites} />
-      <Tab.Screen name="ProfileStackScreen" component={ProfileStackScreen} />
-    </Tab.Navigator>
-)
+export const UserContext = React.createContext<UserContextType>({
+  user: null,
+  setUser: () => {},
+});
 
 const App = () => {
-  const isSignedIn=false;
-  const [user,setUser]=useState();
+  const isSignedIn=true;
+  const [user, setUser] = useState<string | null>(null);
+  
+  console.log('User ==>',user);
+  
   useEffect(() => {
     GoogleSignin.configure({
       webClientId: '664454065013-fs90fmkvi530053kclc7610v3vbs73pc.apps.googleusercontent.com',
@@ -72,36 +43,10 @@ const App = () => {
     });
   }, []); 
 
-const MyTheme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    background: colors.white,
-  },
-};
-
-
   return (
     <SafeAreaProvider>
-      <UserContext.Provider value="User Data">
-          <NavigationContainer theme={MyTheme}>
-        <Stack.Navigator>{
-          isSignedIn?(
-            <>
-            <Stack.Screen name="Tabs" component={Tabs} options={{headerShown:false}}/>
-            <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown:false}}/>
-            </>
+      <UserContext.Provider value={{user,setUser}}>
 
-          ):(
-            <>
-          <Stack.Screen name="Splash" component={Splash} options={{headerShown:false}}/> 
-          <Stack.Screen name="SignIn" component={SignIn} options={{headerShown:false}}/>
-          <Stack.Screen name="SignUp" component={Signup} options={{headerShown:false}}/> 
-          </>
-          )
-          }
-        </Stack.Navigator>
-      </NavigationContainer>
       </UserContext.Provider>
       </SafeAreaProvider>
      

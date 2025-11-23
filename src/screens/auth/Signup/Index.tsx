@@ -3,17 +3,19 @@ import { style } from "./style";
 import AuthHeader from "../../../components/AuthHeader/Index";
 import Input from "../../../components/Input/Index";
 import Checkbox from "../../../components/Checkbox/Index";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "../../../components/Button/Button";
 import Seperator from "../../../components/Seperator/Index";
 import GoogleLogin from "../../../components/Google Login/Index";
 import { request } from "../../../utils/Request";
+import { signUp } from "../../../utils/BackendCalls";
+import { UserContext } from "../../../../App";
 
 
 const Signup = ({navigation}) => {
 const [checked,setChecked]=useState(false)
 const [value, setValue] = useState({email: '' ,name: '',password:'',confirmPassword:''});
-   
+const { user, setUser } = useContext(UserContext);
   const onSignIn=()=>{
    navigation.navigate('SignIn')
   }
@@ -40,13 +42,10 @@ if(!value?.name|| !value.email||!value.password||!value.confirmPassword){
       Alert.alert('Please agree to the term')
       return
     }
-    const response=await request({
-      url:'/registerUser',
-      method:'post',
-      data:value,
-    });
+    const token=await signUp(value);
+    setUser(token);
      console.log('value : ==>',value);
-    console.log('Response : ==>',response);
+    console.log('Response : ==>',token);
     }
     catch(error){
       console.log('error : ==> ', error);
