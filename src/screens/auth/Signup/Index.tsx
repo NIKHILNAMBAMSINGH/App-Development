@@ -15,7 +15,7 @@ import { UserContext } from "../../../../App";
 const Signup = ({navigation}) => {
 const [checked,setChecked]=useState(false)
 const [value, setValue] = useState({email: '' ,name: '',password:'',confirmPassword:''});
-const { user, setUser } = useContext(UserContext);
+const {setUser } = useContext(UserContext);
   const onSignIn=()=>{
    navigation.navigate('SignIn')
   }
@@ -43,7 +43,7 @@ if(!value?.name|| !value.email||!value.password||!value.confirmPassword){
       return
     }
     const token=await signUp(value);
-    setUser(token);
+    setUser({token});
      console.log('value : ==>',value);
     console.log('Response : ==>',token);
     }

@@ -17,22 +17,22 @@ import ProductDetails from './src/components/ProductDetails/Index';
 import Setting from './src/screens/app/Settings/Index';
 import CreateNewListing from './src/screens/app/CreateNewListing/Index';
 import MyListings from './src/screens/app/MyListings/Index';
+import Routes from './Routes';
 
 
 interface UserContextType {
-  user: string | null;
-  setUser: React.Dispatch<React.SetStateAction<string | null>>;
+  user: Record<string, any> | null;
+  setUser: React.Dispatch<React.SetStateAction<Record<string, any> | null>>;
 }
 
 export const UserContext = React.createContext<UserContextType>({
   user: null,
-  setUser: () => {},
+  setUser: () => null,
 });
 
 const App = () => {
   const isSignedIn=true;
-  const [user, setUser] = useState<string | null>(null);
-  
+   const [user, setUser] = useState<Record<string, any> | null>(null);
   console.log('User ==>',user);
   
   useEffect(() => {
@@ -46,7 +46,7 @@ const App = () => {
   return (
     <SafeAreaProvider>
       <UserContext.Provider value={{user,setUser}}>
-
+         <Routes/>
       </UserContext.Provider>
       </SafeAreaProvider>
      

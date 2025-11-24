@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { SafeAreaProvider,SafeAreaView } from 'react-native-safe-area-context';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { DefaultTheme, NavigationContainer, Theme } from '@react-navigation/native';
@@ -17,6 +17,7 @@ import ProductDetails from './src/components/ProductDetails/Index';
 import Setting from './src/screens/app/Settings/Index';
 import CreateNewListing from './src/screens/app/CreateNewListing/Index';
 import MyListings from './src/screens/app/MyListings/Index';
+import { UserContext } from './App';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -60,8 +61,11 @@ const Tabs=()=>(
 )
 
 const Routes = () => {
-  const isSignedIn=true;
-  const [user, setUser] = useState<string | null>(null);
+  const isSignedIn=false;
+ const ctx = useContext(UserContext);
+   const { user, setUser } = ctx;
+
+  console.log('UserContext in Routes ==>',user);
 
 const MyTheme = {
   ...DefaultTheme,
@@ -75,7 +79,7 @@ const MyTheme = {
   return (
           <NavigationContainer theme={MyTheme}>
         <Stack.Navigator>{
-          isSignedIn?(
+          user?.data?.token?(
             <>
             <Stack.Screen name="Tabs" component={Tabs} options={{headerShown:false}}/>
             <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown:false}}/>

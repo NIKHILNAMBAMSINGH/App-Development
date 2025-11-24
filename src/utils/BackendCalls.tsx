@@ -5,13 +5,18 @@ export const login=async(values)=>{
 
         const response=await request(
             {
-                url:'/login',
+                url:'/loginUser',
                 method:'POST',
-                data:values,
+                data:{
+                    usernameOrEmail: values.email,  
+                    passwordHash: values.password    
+                },
             });
 
+            console.log('login response ===>',response)
+
             if(response?.data?.token){
-                return response?.data?.token;
+                return response;
             }
 
     }
@@ -26,14 +31,17 @@ export const signUp=async(values)=>{
 
         const response=await request(
             {
-                url:'/login',
+                url:'/registerUser',
                 method:'POST',
                 data:values,
             });
-
+            console.log('signup response ===>',response)
             if(response){
                 const {email,password}=values;
-                return login({email,password})
+                const loginResponse= await login({email,password})
+                 console.log('token after signup ===>',loginResponse);
+                return loginResponse;
+               
             }
 
     }
